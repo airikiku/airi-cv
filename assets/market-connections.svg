@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="520" height="440" viewBox="0 0 520 440" fill="none" role="img" aria-labelledby="title desc">
+  <title id="title">Connecting markets, creating growth</title>
+  <desc id="desc">Three paths converge and extend upward, representing connections between Japan, China and Europe through market intelligence, go-to-market strategy, partnerships, and growth and product experience. From insight to strategy to execution.</desc>
+  <style>
+    .label{font-family:Arial,sans-serif;font-size:13px;font-weight:600;letter-spacing:1px;fill:#17130f}
+    .sub{font-family:'Noto Sans JP','Yu Gothic',sans-serif;font-size:12px;fill:#5a5249}
+    .market{font-family:Arial,sans-serif;font-size:12px;font-weight:600;letter-spacing:2px;fill:#b02a17}
+    .caption{font-family:Arial,sans-serif;font-size:10px;letter-spacing:1.8px;fill:#5a5249}
+  </style>
+  <text x="260" y="18" text-anchor="middle" class="caption">CONNECTING MARKETS</text>
+  <!-- Intersecting routes represent experience across three markets. -->
+  <g stroke-width="1">
+    <ellipse cx="260" cy="216" rx="190" ry="122" transform="rotate(-29 260 216)" stroke="#b02a17" stroke-opacity=".5"/>
+    <ellipse cx="260" cy="216" rx="183" ry="115" transform="rotate(40 260 216)" stroke="#c9c0b0"/>
+    <ellipse cx="260" cy="216" rx="141" ry="176" transform="rotate(24 260 216)" stroke="#17130f" stroke-opacity=".25"/>
+    <circle cx="260" cy="216" r="103" stroke="#b02a17" stroke-opacity=".45"/>
+    <circle cx="260" cy="216" r="77" stroke="#c9c0b0" stroke-dasharray="2 5"/>
+  </g>
+  <g fill="#b02a17" stroke="#f3efe6" stroke-width="4">
+    <circle cx="163" cy="181" r="5.5"/>
+    <circle cx="349" cy="266" r="5.5"/>
+    <circle cx="242" cy="317" r="5.5"/>
+  </g>
+  <g fill="#f3efe6">
+    <path d="M220 109h82v22h-82z"/>
+    <path d="M337 209h73v24h-73z"/>
+    <path d="M157 287h91v23h-91z"/>
+  </g>
+  <text x="261" y="125" text-anchor="middle" class="market">JAPAN</text>
+  <text x="374" y="226" text-anchor="middle" class="market">CHINA</text>
+  <text x="202" y="304" text-anchor="middle" class="market">EUROPE</text>
+  <!-- Three market routes converge, then continue toward growth. -->
+  <circle cx="260" cy="216" r="59" fill="#b02a17"/>
+  <circle cx="260" cy="216" r="53" stroke="#f3efe6" stroke-opacity=".35"/>
+  <g stroke="#f3efe6" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M234 190C234 207 244 216 260 216"/>
+    <path d="M227 230C242 230 246 216 260 216"/>
+    <path d="M251 247C251 232 251 225 260 216"/>
+    <path d="M260 216L287 189M272 189H287V204"/>
+  </g>
+  <g fill="#b02a17" stroke="#f3efe6" stroke-width="2">
+    <circle cx="234" cy="190" r="3.5"/>
+    <circle cx="227" cy="230" r="3.5"/>
+    <circle cx="251" cy="247" r="3.5"/>
+  </g>
+  <circle cx="260" cy="216" r="4.5" fill="#f3efe6"/>
+  <!-- Capabilities are connected to the routes, without sequence numbers. -->
+  <g stroke="#9b8c78" stroke-width="1">
+    <path d="M116 89v29l47 63"/>
+    <path d="M408 120v25l-34 38"/>
+    <path d="M109 303v-37l40-27"/>
+    <path d="M407 332v-22l-58-44"/>
+  </g>
+  <g>
+    <path d="M10 38h213v52H10z" fill="#f3efe6" stroke="#c9c0b0"/>
+    <path d="M10 38v52" stroke="#b02a17" stroke-width="3"/>
+    <text x="24" y="59" class="label">MARKET INTELLIGENCE</text>
+    <text x="24" y="78" class="sub">市場を読み解く</text>
+    <path d="M324 68h186v52H324z" fill="#f3efe6" stroke="#c9c0b0"/>
+    <path d="M510 68v52" stroke="#b02a17" stroke-width="3"/>
+    <text x="338" y="89" class="label">GO-TO-MARKET</text>
+    <text x="338" y="108" class="sub">市場参入を設計する</text>
+    <path d="M0 303h187v52H0z" fill="#f3efe6" stroke="#c9c0b0"/>
+    <path d="M1.5 303v52" stroke="#b02a17" stroke-width="3"/>
+    <text x="15" y="324" class="label">PARTNERSHIPS</text>
+    <text x="15" y="343" class="sub">人と事業をつなぐ</text>
+    <path d="M300 332h210v52H300z" fill="#f3efe6" stroke="#c9c0b0"/>
+    <path d="M510 332v52" stroke="#b02a17" stroke-width="3"/>
+    <text x="314" y="353" class="label">GROWTH &amp; PRODUCT</text>
+    <text x="314" y="372" class="sub">成長と体験を磨く</text>
+  </g>
+  <path d="M100 417h40m240 0h40" stroke="#c9c0b0"/>
+  <text x="260" y="420" text-anchor="middle" class="caption" style="font-size:9px;letter-spacing:1px">INSIGHT → STRATEGY → EXECUTION</text>
+</svg>
