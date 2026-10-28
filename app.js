@@ -1,17 +1,28 @@
 const menuToggle = document.querySelector('.menu-toggle');
 const navigation = document.querySelector('#primary-nav');
+const isEnglish = () => document.documentElement.lang === 'en';
+
+if (!document.documentElement.hasAttribute('data-standalone-bilingual')) {
+  document.querySelectorAll('.language-switch a').forEach(link => {
+    link.addEventListener('click', event => {
+      if (link.getAttribute('aria-current') === 'page') return;
+      event.preventDefault();
+      window.location.href = `${link.getAttribute('href')}${window.location.hash}`;
+    });
+  });
+}
 
 function closeMenu() {
   navigation.classList.remove('is-open');
   menuToggle.setAttribute('aria-expanded', 'false');
-  menuToggle.setAttribute('aria-label', 'メニューを開く');
+  menuToggle.setAttribute('aria-label', isEnglish() ? 'Open menu' : 'メニューを開く');
   menuToggle.querySelector('span').textContent = '＋';
 }
 menuToggle.addEventListener('click', () => {
   const open = menuToggle.getAttribute('aria-expanded') !== 'true';
   navigation.classList.toggle('is-open', open);
   menuToggle.setAttribute('aria-expanded', String(open));
-  menuToggle.setAttribute('aria-label', open ? 'メニューを閉じる' : 'メニューを開く');
+  menuToggle.setAttribute('aria-label', isEnglish() ? (open ? 'Close menu' : 'Open menu') : (open ? 'メニューを閉じる' : 'メニューを開く'));
   menuToggle.querySelector('span').textContent = open ? '−' : '＋';
 });
 navigation.querySelectorAll('a').forEach(link => link.addEventListener('click', closeMenu));

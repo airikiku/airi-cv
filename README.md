@@ -4,7 +4,9 @@
 
 ## Local preview
 
-`index.html` をブラウザで開くか、プロジェクトのディレクトリで `python3 -m http.server 4173` を実行し、`http://localhost:4173/` にアクセスしてください。
+`index.html` をブラウザで開くか、プロジェクトのディレクトリで `python3 -m http.server 4173` を実行し、`http://localhost:4173/` にアクセスしてください。ヘッダーの JP / EN から、英語版 `en.html` に切り替えられます。
+
+日本語ページを更新した場合は `node scripts/build-english.mjs` で英語ページを再生成してください。翻訳文は同スクリプト内で管理しています。
 
 ## GitHub Pages
 
