@@ -39,6 +39,7 @@ const bilingualScript = `
       return;
     }
     if (current.nodeType !== Node.ELEMENT_NODE) return;
+    if (current.id === 'career-explorer') return;
     for (const name of ['alt', 'aria-label', 'data-gallery-alt']) {
       if (translation.hasAttribute(name)) current.setAttribute(name, translation.getAttribute(name));
     }
@@ -53,6 +54,7 @@ const bilingualScript = `
     const templates = english ? rootSelectors.map(selector => englishDocument.querySelector(selector)) : japaneseRoots;
     rootSelectors.forEach((selector, index) => translateNode(document.querySelector(selector), templates[index]));
     document.documentElement.lang = language;
+    window.renderCareerExplorer?.();
     document.title = english ? englishDocument.title : japaneseTitle;
     document.querySelector('meta[name="description"]').content = english
       ? englishDocument.querySelector('meta[name="description"]').content
@@ -64,6 +66,8 @@ const bilingualScript = `
     });
     closeMenu();
   }
+
+  window.setStandaloneLanguage = setLanguage;
 
   document.querySelectorAll('.language-switch a').forEach(link => {
     link.addEventListener('click', event => {
@@ -77,13 +81,14 @@ const bilingualScript = `
 let html = read('index.html');
 html = html.replace('<html lang="ja">', '<html lang="ja" data-standalone-bilingual>');
 html = html.replace('<link rel="stylesheet" href="styles.css">', `<style>\n${read('styles.css')}\n</style>`);
-html = html.replace('<script src="app.js" defer></script>', '');
+html = html.replace('<link rel="stylesheet" href="career-explorer.css">', `<style>\n${read('career-explorer.css')}\n</style>`);
+html = html.replace('<script src="app.js" defer></script><script src="career-data.js" defer></script><script src="career-explorer.js" defer></script>', '');
 html = html.replace(/(src|href|data-gallery-image)="(assets\/[^\"]+|favicon\.svg)"/g,
   (_, attribute, path) => `${attribute}="${imageDataUrl(path)}"`);
 html = html.replace(/href="(?:index|en)\.html"/g, 'href="#"');
-html = html.replace('</body>', `<script>\n${read('app.js')}\n</script>\n<script>\n${bilingualScript}\n</script>\n</body>`);
+html = html.replace('</body>', `<script>\n${read('app.js')}\n</script>\n<script>\n${read('career-data.js')}\n</script>\n<script>\n${read('career-explorer.js')}\n</script>\n<script>\n${bilingualScript}\n</script>\n</body>`);
 
-if (/(?:src|href|data-gallery-image)="assets\//.test(html) || /(?:styles\.css|app\.js|href="en\.html")/.test(html)) {
+if (/(?:src|href|data-gallery-image)="assets\//.test(html) || /href="(?:styles|career-explorer)\.css"|src="(?:app|career-data|career-explorer)\.js"|href="en\.html"/.test(html)) {
   throw new Error('Standalone HTML still contains a local dependency');
 }
 

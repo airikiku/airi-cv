@@ -20,11 +20,12 @@ function imageDataUrl(relativePath) {
 
 let html = read('index.html');
 html = html.replace('<link rel="stylesheet" href="styles.css">', `<style>\n${read('styles.css')}\n</style>`);
-html = html.replace('<script src="app.js" defer></script>', '');
-html = html.replace('</body>', `<script>\n${read('app.js')}\n</script>\n</body>`);
+html = html.replace('<link rel="stylesheet" href="career-explorer.css">', `<style>\n${read('career-explorer.css')}\n</style>`);
+html = html.replace('<script src="app.js" defer></script><script src="career-data.js" defer></script><script src="career-explorer.js" defer></script>', '');
+html = html.replace('</body>', `<script>\n${read('app.js')}\n</script>\n<script>\n${read('career-data.js')}\n</script>\n<script>\n${read('career-explorer.js')}\n</script>\n</body>`);
 html = html.replace(/(src|href)="(assets\/[^"]+|favicon\.svg)"/g, (_, attribute, path) => `${attribute}="${imageDataUrl(path)}"`);
 
-if (/src="assets\//.test(html) || /href="styles\.css"/.test(html) || /src="app\.js"/.test(html)) {
+if (/src="assets\//.test(html) || /href="(?:styles|career-explorer)\.css"|src="(?:app|career-data|career-explorer)\.js"/.test(html)) {
   throw new Error('The download file still has local dependencies.');
 }
 

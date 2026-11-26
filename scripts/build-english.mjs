@@ -3,6 +3,7 @@ import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
 
 const root = join(dirname(fileURLToPath(import.meta.url)), '..');
+const career = JSON.parse(readFileSync(join(root, 'career-data.js'), 'utf8').replace(/^window\.CAREER_EXPLORER = /, '').replace(/;\s*$/, ''));
 const translations = new Map([
   ['菊 愛莉 | International Growth & GTM', 'KIKU AIRI | International Growth & GTM'],
   ['本文へスキップ', 'Skip to main content'],
@@ -10,6 +11,8 @@ const translations = new Map([
   ['メニュー', 'Menu'],
   ['実績', 'Work'],
   ['キャリア', 'Career'],
+  ['経験を、ふたつの視点から。', 'Explore my experience from two perspectives.'],
+  ['主な職務経験を新しい順にご紹介します。', 'Explore my core experience, most recent first.'],
   ['プロダクト', 'Products'],
   ['コンテンツ', 'Content'],
   ['市場を越えて、', 'Across markets,'],
@@ -100,6 +103,12 @@ const translations = new Map([
   ['トップへ ↑', 'Back to top ↑'],
   ['市場を理解し、国境を越えて、事業を成長させる。', 'Turning market insight into cross-border growth.'],
 ]);
+
+for (let i = 0; i < career.ja.length; i++) {
+  const ja = career.ja[i], en = career.en[i];
+  for (const key of ['name', 'date', 'place', 'role', 'summary']) translations.set(ja[key], en[key]);
+  translations.set(`${ja.date} / ${ja.place} / ${ja.role}`, `${en.date} / ${en.place} / ${en.role}`);
+}
 
 const attributes = new Map([
   ['菊 愛莉 — 市場調査、越境B2B事業開発、GTM、デジタルグロースを15年以上推進。日本・中国・台湾・欧州をつなぐ。', 'Kiku Airi brings more than 15 years of experience in market research, cross-border B2B development, GTM, and digital growth across Japan, China, Taiwan, and Europe.'],
